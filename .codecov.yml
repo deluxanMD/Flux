@@ -1,0 +1,22 @@
+codecov:
+  disable_default_path_fixes: true
+coverage:
+  status:
+    project:
+      default:
+        target: 80.0
+        threshold: '0.0'
+    patch:
+      default:
+        target: 80.0
+        threshold: '0.0'
+ignore:
+  - ^src/index.js.*
+  - (?s:\^src/reportWebVitals\.js[^\/]*)\Z
+  - (?s:\^src/reportWebVitals\.ts[^\/]*)\Z
+  - (?s:\^src/index\.ts[^\/]*)\Z
+  - ^^src/store.ts.*
+  - (?s:\^src/store/index\.ts[^\/]*)\Z
+  - (?s:\^src/.*/[^\/]*\.cy\.ts[^\/]*)\Z
+  - ^^home/.*
+  - ^^coverage/.*
