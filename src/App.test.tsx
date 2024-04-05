@@ -6,10 +6,25 @@ import App from './App';
 import {it} from '@jest/globals';
 
 // Note: test renderer must be required after react-native.
-import renderer from 'react-test-renderer';
+import {reducer} from './test-utils/test-wrapper/test-wrapper.component';
+import {act} from 'react-test-renderer';
+import {store} from './redux/store';
+import {toggleTheme} from './redux/app/app.slice';
 
 describe('<App />', () => {
-  it('renders correctly', () => {
-    renderer.create(<App />);
+  it('should handles theme toggle', () => {
+    reducer(<App />);
+
+    expect(store.getState().app.mode).toEqual('light');
+
+    act(() => {
+      store.dispatch(toggleTheme());
+    });
+    expect(store.getState().app.mode).toEqual('dark');
+
+    act(() => {
+      store.dispatch(toggleTheme());
+    });
+    expect(store.getState().app.mode).toEqual('light');
   });
 });
