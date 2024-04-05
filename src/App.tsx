@@ -1,13 +1,11 @@
 import React from 'react';
 import {SafeAreaView, ScrollView, StatusBar, Text, View} from 'react-native';
 import {lightTheme, darkTheme} from './rn-elements/theme/theme';
-import {useDispatch, useSelector} from 'react-redux';
-import {toggle} from './redux/app/app.slice';
+import {useSelector} from 'react-redux';
 import {RootState} from './redux/store';
-import {Button, ThemeProvider} from '@rneui/themed';
+import {ThemeProvider} from '@rneui/themed';
 
 const App = () => {
-  const dispatch = useDispatch();
   const mode = useSelector((state: RootState) => state.app.mode);
 
   return (
@@ -16,8 +14,7 @@ const App = () => {
         <StatusBar />
         <ScrollView contentInsetAdjustmentBehavior="automatic">
           <View>
-            <Text>App Component {mode}</Text>
-            <Button title={'lkjljj'} onPress={() => dispatch(toggle())} />
+            <Text>App Component</Text>
           </View>
         </ScrollView>
       </SafeAreaView>
