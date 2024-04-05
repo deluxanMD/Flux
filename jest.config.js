@@ -1,6 +1,7 @@
 module.exports = {
   preset: 'react-native',
   transformIgnorePatterns: [
-    'node_modules/(?!((jest-)?react-native|@react-native|react-navigation|@react-navigation|react-redux|@rneui/.*))',
+    'node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg|react-redux|@rneui)',
   ],
+  setupFiles: ['<rootDir>/jest.setup.js'],
 };
