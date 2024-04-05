@@ -13,7 +13,7 @@ const App = () => {
       <SafeAreaView>
         <StatusBar />
         <ScrollView contentInsetAdjustmentBehavior="automatic">
-          <View>
+          <View testID="App.Container">
             <Text>App Component</Text>
           </View>
         </ScrollView>

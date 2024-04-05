@@ -21,5 +21,10 @@ describe('<App />', () => {
       store.dispatch(toggleTheme());
     });
     expect(store.getState().app.mode).toEqual('dark');
+
+    act(() => {
+      store.dispatch(toggleTheme());
+    });
+    expect(store.getState().app.mode).toEqual('light');
   });
 });
