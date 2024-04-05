@@ -12,7 +12,7 @@ export const appSlice = createSlice({
   name: 'app',
   initialState,
   reducers: {
-    toggle: state => {
+    toggleTheme: state => {
       if (state.mode === 'light') {
         state.mode = 'dark';
       } else {
@@ -23,6 +23,6 @@ export const appSlice = createSlice({
 });
 
 // ACTIONS
-export const {toggle} = appSlice.actions;
+export const {toggleTheme} = appSlice.actions;
 
 export default appSlice.reducer;
