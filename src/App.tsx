@@ -1,10 +1,10 @@
 import React from 'react';
 import {SafeAreaView, ScrollView, StatusBar, Text, View} from 'react-native';
-import {ThemeProvider, Button} from '@rneui/themed';
 import {lightTheme, darkTheme} from './rn-elements/theme/theme';
 import {useDispatch, useSelector} from 'react-redux';
 import {toggle} from './redux/app/app.slice';
 import {RootState} from './redux/store';
+import {Button, ThemeProvider} from '@rneui/themed';
 
 const App = () => {
   const dispatch = useDispatch();
