@@ -11,6 +11,8 @@ import {act} from 'react-test-renderer';
 import {store} from './redux/store';
 import {toggleTheme} from './redux/app/app.slice';
 
+jest.useFakeTimers();
+
 describe('<App />', () => {
   it('should handles theme toggle', () => {
     reducer(<App />);
