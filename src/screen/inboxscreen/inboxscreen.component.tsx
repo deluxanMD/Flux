@@ -3,7 +3,7 @@ import React from 'react';
 
 const InboxScreen = () => {
   return (
-    <View>
+    <View testID="InboxScreen">
       <Text>InboxScreen</Text>
     </View>
   );

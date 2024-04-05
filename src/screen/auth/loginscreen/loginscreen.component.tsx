@@ -3,7 +3,7 @@ import React from 'react';
 
 const LoginScreen = () => {
   return (
-    <View>
+    <View testID="LoginScreen">
       <Text>LoginScreen</Text>
     </View>
   );

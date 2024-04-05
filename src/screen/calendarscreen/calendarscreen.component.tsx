@@ -3,7 +3,7 @@ import React from 'react';
 
 const CalendarScreen = () => {
   return (
-    <View>
+    <View testID="CalendarScreen">
       <Text>CalendarScreen</Text>
     </View>
   );

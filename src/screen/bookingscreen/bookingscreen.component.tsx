@@ -3,7 +3,7 @@ import React from 'react';
 
 const BookingScreen = () => {
   return (
-    <View>
+    <View testID="BookingScreen">
       <Text>BookingScreen</Text>
     </View>
   );
