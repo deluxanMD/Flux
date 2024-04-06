@@ -1,55 +1,18 @@
 import {Image, View} from 'react-native';
 import React from 'react';
-import {makeStyles} from '@rneui/base';
 import {Button, Divider, Text, withTheme} from '@rneui/themed';
 import FacebookButton from '../../components/forms/fields/facebook-button/facebook-button.component';
 import GoogleButton from '../../components/forms/fields/google-button/google-button.component';
 import AppleButton from '../../components/forms/fields/apple-button/apple-button.component';
-
-const useStyles = makeStyles(() => ({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingLeft: 20,
-    paddingRight: 20,
-  },
-  image: {
-    width: 250,
-    height: 250,
-  },
-  title: {
-    marginTop: 10,
-  },
-  socialContainer: {
-    marginTop: 10,
-    width: '100%',
-  },
-  divider: {
-    paddingTop: 20,
-    paddingBottom: 20,
-    width: '100%',
-  },
-  signInBtnContainer: {
-    paddingTop: 20,
-    width: '100%',
-    alignSelf: 'flex-end',
-  },
-  signupLink: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  signupLinkText: {
-    fontSize: 14,
-  },
-}));
+import HeaderOnlyBack from '../../components/header-only-back/header-only-back.component';
+import {useLetsYouInStyles} from './letsyouin.styles';
 
 const LetsYouIn = withTheme(({theme}) => {
-  const styles = useStyles();
+  const styles = useLetsYouInStyles();
 
   return (
     <View testID="LetsYouIn" style={styles.container}>
+      <HeaderOnlyBack />
       <Image
         source={require('../../assets/images/cartoon1.png')}
         style={styles.image}
@@ -62,7 +25,9 @@ const LetsYouIn = withTheme(({theme}) => {
         <GoogleButton />
         <AppleButton />
       </View>
-      <Divider color={theme?.colors.primary} style={styles.divider} />
+      <View style={styles.divider}>
+        <Divider color={theme?.colors.primary} />
+      </View>
       <View style={styles.signInBtnContainer}>
         <Button radius={8} testID="LetsYouIn.Signin.Button">
           Sign in with password
