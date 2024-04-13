@@ -1,6 +1,6 @@
 import React from 'react';
 import FacebookButton from './facebook-button.component';
-import {reducer} from '../../../../test-utils/test-wrapper/test-wrapper.component';
+import {reducer} from '../../../../../test-utils/test-wrapper/test-wrapper.component';
 
 describe('<FacebookButton />', () => {
   it('should render', () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import {reducer} from '../../../../test-utils/test-wrapper/test-wrapper.component';
+import {reducer} from '../../../../../test-utils/test-wrapper/test-wrapper.component';
 import AppleButton from './apple-button.component';
 
 describe('<AppleButton />', () => {

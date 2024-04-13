@@ -1,6 +1,6 @@
 import React from 'react';
 import AppleButton from '../apple-button/apple-button.component';
-import {reducer} from '../../../../test-utils/test-wrapper/test-wrapper.component';
+import {reducer} from '../../../../../test-utils/test-wrapper/test-wrapper.component';
 
 describe('<AppleButton />', () => {
   it('should render', () => {
