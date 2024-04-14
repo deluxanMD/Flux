@@ -1,3 +1,4 @@
+/* eslint-disable no-extra-boolean-cast */
 import {View} from 'react-native';
 import React from 'react';
 import {useSignupScreenStyles} from './signupscreen.styles';
@@ -11,21 +12,48 @@ import GoogleIconButton from '../../../components/forms/fields/social-icon-butto
 import AppleIconButton from '../../../components/forms/fields/social-icon-buttons/apple-icon-button/apple-icon-button.component';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from 'react-native-screens/lib/typescript/native-stack/types';
-import {useSignUpMutation} from '../../../api/auth/auth-api.slice';
+import {
+  useSignInMutation,
+  useSignUpMutation,
+} from '../../../api/auth/auth-api.slice';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {API_CONSTANTS} from '../../../constants/api.constants';
 
 const SignupScreen = () => {
   const styles = useSignupScreenStyles();
   const formMethods = useSignupForm();
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
   const [signUp] = useSignUpMutation();
+  const [signIn] = useSignInMutation();
 
   const onSubmit = async (formData: {email: string; password: string}) => {
     try {
-      const data = await signUp({
+      const data: any = await signUp({
         email: formData.email,
         password: formData.password,
       });
-      console.log({data});
+      if (!data?.error) {
+        await handleSignIn(formData.email, formData.password);
+      }
+    } catch (err) {
+      console.log({err});
+    }
+  };
+
+  const handleSignIn = async (email: string, password: string) => {
+    try {
+      const {data}: any = await signIn({
+        email,
+        password,
+      });
+
+      if (!!data.accessToken) {
+        await AsyncStorage.setItem(
+          API_CONSTANTS.ACCESS_TOKEN,
+          data.accessToken,
+        );
+        navigation.navigate('ProfileEdit');
+      }
     } catch (err) {
       console.log({err});
     }

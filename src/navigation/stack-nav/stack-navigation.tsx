@@ -5,6 +5,7 @@ import BottomTabNavigation from '../bottom-tab/bottom-tab-navigation';
 import Onboarding from '../../screen/onboarding/onboarding.component';
 import LetsYouIn from '../../screen/letsyouin/letsyouin.component';
 import SignupScreen from '../../screen/auth/signup/signupscreen.component';
+import ProfileEditScreen from '../../screen/profile-edit-screen/profile-edit-screen.component';
 
 const Stack = createStackNavigator();
 
@@ -13,12 +14,13 @@ const screenOptions = {headerShown: false};
 const StackNavigation = () => {
   return (
     <Stack.Navigator
-      initialRouteName="Onboarding"
+      initialRouteName="ProfileEdit"
       screenOptions={screenOptions}>
       <Stack.Screen name="Onboarding" component={Onboarding} />
       <Stack.Screen name="letsyouin" component={LetsYouIn} />
       <Stack.Screen name="Signup" component={SignupScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="ProfileEdit" component={ProfileEditScreen} />
       <Stack.Screen name="App" component={BottomTabNavigation} />
     </Stack.Navigator>
   );

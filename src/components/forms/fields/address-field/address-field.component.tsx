@@ -5,13 +5,11 @@ import {View} from 'react-native';
 import FluxHelperTextField from '../flux-helper-text-field/flux-helper-text-field.component';
 import {useFieldStyles} from '../fields.styles';
 
-export type TextFieldProps = {
+export type AddressFieldProps = {
   name: string;
-  leftIcon?: string;
-  rightIcon?: string;
 } & TextInputProps;
 
-const TextField = ({name, leftIcon, rightIcon, ...rest}: TextFieldProps) => {
+const AddressField = ({name, ...rest}: AddressFieldProps) => {
   const {control} = useFormContext();
   const fieldStyles = useFieldStyles();
 
@@ -24,9 +22,10 @@ const TextField = ({name, leftIcon, rightIcon, ...rest}: TextFieldProps) => {
           <TextInput
             error={!!error}
             value={value}
+            placeholder="Address"
             onChangeText={onChange}
-            left={!!leftIcon && <TextInput.Icon icon={leftIcon} size={20} />}
-            right={!!rightIcon && <TextInput.Icon icon={rightIcon} size={20} />}
+            left={<TextInput.Icon icon={'map'} size={20} />}
+            right={<TextInput.Icon icon={'target'} size={20} />}
             {...rest}
           />
           <View style={fieldStyles.helperText}>
@@ -38,4 +37,4 @@ const TextField = ({name, leftIcon, rightIcon, ...rest}: TextFieldProps) => {
   );
 };
 
-export default TextField;
+export default AddressField;

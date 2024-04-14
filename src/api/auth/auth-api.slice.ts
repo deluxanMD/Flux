@@ -1,6 +1,6 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 import {API_URL} from '@env';
-import {SignupParams} from './auth-api.types';
+import {SignInResponse, SignupParams} from './auth-api.types';
 
 export const authApi = createApi({
   reducerPath: 'authApi',
@@ -13,7 +13,15 @@ export const authApi = createApi({
         body,
       }),
     }),
+
+    signIn: builder.mutation<SignInResponse, SignupParams>({
+      query: body => ({
+        url: '/auth/signin',
+        method: 'POST',
+        body,
+      }),
+    }),
   }),
 });
 
-export const {useSignUpMutation} = authApi;
+export const {useSignUpMutation, useSignInMutation} = authApi;

@@ -1,0 +1,3 @@
+export const API_CONSTANTS = {
+  ACCESS_TOKEN: 'ACCESS_TOKEN',
+};

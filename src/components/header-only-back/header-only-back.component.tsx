@@ -1,28 +1,31 @@
 import React from 'react';
-import {Header, Icon} from '@rneui/themed';
-import {TouchableOpacity} from 'react-native';
-import {makeStyles} from '@rneui/base';
+import {Header, Icon, Text} from '@rneui/themed';
+import {TouchableOpacity, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import {useHeaderWithIcon} from './header-only-back.styles';
 
-const useStyles = makeStyles(() => ({
-  container: {
-    backgroundColor: 'transparent',
-  },
-}));
+type Props = {
+  title?: string;
+};
 
-const HeaderOnlyBack = () => {
-  const styles = useStyles();
+const HeaderOnlyBack = ({title}: Props) => {
+  const styles = useHeaderWithIcon();
   const navigation = useNavigation();
 
   return (
     <Header
-      backgroundColor={styles.container.backgroundColor}
+      backgroundColor={'transparent'}
       leftComponent={
-        <TouchableOpacity
-          onPress={() => navigation.goBack()}
-          testID="HeaderOnlyBack.Icon">
-          <Icon name="arrow-back" />
-        </TouchableOpacity>
+        <View style={styles.container}>
+          <TouchableOpacity
+            onPress={() => navigation.goBack()}
+            testID="HeaderOnlyBack.Icon">
+            <Icon name="arrow-back" />
+          </TouchableOpacity>
+          <Text h4 style={styles.title}>
+            {title}
+          </Text>
+        </View>
       }
       testID="HeaderOnlyBack"
     />
